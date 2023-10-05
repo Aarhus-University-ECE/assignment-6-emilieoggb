@@ -8,13 +8,13 @@ int max(int *numbers, int size) {
   assert(size > 0);
 
   int max = numbers[0];
-  
-  for(int i = 1; i < size; i++){
-    if(numbers[i] > max){
-      max = numbers[i];
+  if(size > 1){
+    for(int i = 1; i < size; i++){
+      if(numbers[i] > max){
+        max = numbers[i];
+      }
     }
   }
-
   return max;
 }
 
