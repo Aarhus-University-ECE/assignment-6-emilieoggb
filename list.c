@@ -21,8 +21,13 @@ void add(node *head, int x) {
 
 // exersice 3.b
 int size(node *l) {
-
-	return 0;
+    int count = 0;
+    node *current = l->next;
+    while (current != NULL) {
+        count++;
+        current = current->next;
+    }
+    return count;
 }
 
 // exersice 3.c and 3.d
@@ -33,6 +38,7 @@ void printout(node *l) {
   node *p = l->next;
   while (p != NULL) {
     printf("%d, ", p->data);
+    p = p->next;
   }
   printf("\n");
 }
@@ -43,7 +49,17 @@ int largest(node *l) {
   // 	     The last element's next is NULL.
   // post: Returns the largest value of the list
 
-  return 0;
+    int largest_value = l->next->data;
+    node *current = l->next->next;
+
+    while (current != NULL) {
+        if (current->data > largest_value) {
+            largest_value = current->data;
+        }
+        current = current->next;
+    }
+
+    return largest_value;
 }
 
 #ifndef TEST
@@ -54,9 +70,7 @@ int main() {
   add(list, 1);
   add(list, 3);
   add(list, 2);
-  // Show list here
   add(list, 2);
-  // Show list here
 
   return 0;
 }
